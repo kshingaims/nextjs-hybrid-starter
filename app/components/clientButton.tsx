@@ -5,11 +5,16 @@ import { appInsights } from "../../src/appInsights";
 export default function ClientButton() {
   const handleClick = () => {
     // Application Insights にイベントを送信
-    appInsights.trackEvent({ 
-      name: "ButtonClicked", 
-      properties: { buttonName: "MyButton" } 
-    });
-    console.log("Button clicked!");
+    try {
+      appInsights.trackEvent({ 
+        name: "ButtonClicked", 
+        properties: { buttonName: "MyButton" } 
+      });
+      console.log("Button clicked! Event sent to Application Insights.");
+      console.log("Instrumentation Key:", process.env.NEXT_PUBLIC_APPINSIGHTS_INSTRUMENTATIONKEY);
+    } catch (error) {
+      console.error("Failed to send event to Application Insights:", error);
+    }
   };
 
   return <button onClick={handleClick}>Click Me</button>;
