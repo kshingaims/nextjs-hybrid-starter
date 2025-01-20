@@ -3,24 +3,28 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "node --require ./load-appinsights.js node_modules/next/dist/bin/next dev",
+    "start": "node --require ./load-appinsights.js node_modules/next/dist/bin/next start",
     "build": "next build && cp -r .next/static .next/standalone/.next/ && cp -r public .next/standalone/",
-    "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
-    "react": "^18",
-    "react-dom": "^18",
-    "next": "14.1.0"
+    "@microsoft/applicationinsights-react-js": "^17.3.4",
+    "@microsoft/applicationinsights-web": "^3.3.4",
+    "applicationinsights": "^3.4.0",
+    "dotenv": "^16.4.7",
+    "next": "^15.1.5",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "typescript": "^5",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
     "postcss": "^8",
-    "tailwindcss": "^3.3.0"
+    "tailwindcss": "^3.3.0",
+    "typescript": "^5"
   },
   "engines": {
     "node": "18.17.1"

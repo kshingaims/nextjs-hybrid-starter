@@ -1,10 +1,16 @@
 import { unstable_noStore as noStore } from 'next/cache';
 import { CurrentTimeFromAPI } from './components/CurrentTimeFromAPI';
+import { appInsights } from '../src/appInsights';
+
+import ClientButton from "./components/clientButton";
 
 export default function Home() {
   noStore();
   const timeOnServer = new Date().toLocaleTimeString('en-US');
   const dbHost = process.env.DB_HOST;
+  const handleClick = () => {
+    appInsights.trackEvent({ name: 'PageButtonClicked', properties: { button: 'main' } });
+  };
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
     <div>
@@ -14,6 +20,10 @@ export default function Home() {
     <div>
       <h1>Environment Variable</h1>
       <p>DB HOST: {dbHost}</p>
+    </div>
+    <div>
+      <h1>Welcome to the App Directory Page</h1>
+      <ClientButton />
     </div>
 </main>
   );
