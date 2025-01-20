@@ -32,8 +32,8 @@ jobs:
           api_location: "" # Api source code path - optional
           output_location: "" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
-      env: # ここに環境変数を追加
-        DB_HOST: "YOUR HOST NAME"
+        env: # ここに環境変数を追加
+          DB_HOST: "YOUR HOST NAME"
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
