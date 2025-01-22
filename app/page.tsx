@@ -7,7 +7,7 @@ import ClientButton from "./components/clientButton";
 export default function Home() {
   noStore();
   const timeOnServer = new Date().toLocaleTimeString('en-US');
-  const dbHost = process.env.DB_HOST;
+  const test = process.env.TEST;
   const handleClick = () => {
     appInsights.trackEvent({ name: 'PageButtonClicked', properties: { button: 'main' } });
   };
@@ -19,7 +19,7 @@ export default function Home() {
     <CurrentTimeFromAPI />
     <div>
       <h1>Environment Variable</h1>
-      <p>DB HOST: {dbHost}</p>
+      <p>TEST: {test}</p>
     </div>
     <div>
       <h1>Welcome to the App Directory Page</h1>

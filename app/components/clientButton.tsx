@@ -4,7 +4,6 @@ import { appInsights } from "../../src/appInsights";
 
 export default function ClientButton() {
   const handleClick = () => {
-    // Application Insights にイベントを送信
     try {
       appInsights.trackEvent({ 
         name: "ButtonClicked", 

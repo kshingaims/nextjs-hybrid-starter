@@ -33,6 +33,7 @@ jobs:
           output_location: "" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
         env:
+          TEST: "TEST"
           APPLICATIONINSIGHTS_CONNECTION_STRING: "InstrumentationKey=bf149684-958f-4724-a1b9-aa9ef7c63df3;IngestionEndpoint=https://japaneast-1.in.applicationinsights.azure.com/;LiveEndpoint=https://japaneast.livediagnostics.monitor.azure.com/;ApplicationId=10ebd39f-441e-4f0c-8011-1df4138fca92"
           NEXT_PUBLIC_APPINSIGHTS_INSTRUMENTATIONKEY: "bf149684-958f-4724-a1b9-aa9ef7c63df3"
 
